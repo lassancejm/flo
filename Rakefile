@@ -72,7 +72,10 @@ end
 
 # Task to create chain file.
 file 'run/liftover.chn' do
-  mkdir 'run'
+  mkdir_p CONFIG[:output_path]  
+  cd CONFIG[:output_path]
+
+  mkdir_p 'run'
 
   source_fa = File.expand_path CONFIG[:source_fa]
   target_fa = File.expand_path CONFIG[:target_fa]
